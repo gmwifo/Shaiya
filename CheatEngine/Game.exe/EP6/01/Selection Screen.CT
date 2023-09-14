@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>920</ID>
+      <Description>"move all text and alignment"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem, 2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+pushad
+lea eax,[ebx-04]
+mov dword ptr [eax],C37B0000
+add eax,08
+call 00631BE0
+popad
+
+originalcode:
+
+exit:
+jmp returnhere
+
+"game.exe"+75C90:
+jmp newmem
+nop
+nop
+nop
+returnhere:
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+{
+dealloc(newmem)
+"game.exe"+75C90:
+fadd dword ptr [ebx-04]
+call 00631BE0
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>922</ID>
+      <Description>"move targa file"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem, 2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+add eax,FFFFFC00
+sar eax,02
+
+originalcode:
+
+exit:
+jmp returnhere
+
+"game.exe"+75C83:
+jmp newmem
+returnhere:
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+{
+dealloc(newmem)
+"game.exe"+75C83:
+add eax,edx
+sar eax,02
+}
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
