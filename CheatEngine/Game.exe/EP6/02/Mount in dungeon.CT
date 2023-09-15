@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>920</ID>
+      <Description>"Mount in dungeon"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+"game.exe"+118DA0:
+jmp 00518DC4
+
+[DISABLE]
+"game.exe"+118DA0:
+je 00518DC4
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
