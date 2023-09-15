@@ -6,7 +6,7 @@ __declspec(naked) void naked_0x504D65()
 	__asm
 	{
 		push 0x00000000
-		fstp dword ptr ds : [esp + 0x2C]
+		fstp dword ptr ss : [esp + 0x2C]
 		push 0x00000000
 		fild dword ptr ds :[0x022032E0]
 		push 0x000000FF
@@ -20,7 +20,7 @@ __declspec(naked) void naked_0x5050FF()
 	__asm
 	{
 		push 0x000000CE
-		fstp dword ptr ds : [esp + 0x2C]
+		fstp dword ptr ss : [esp + 0x2C]
 		push 0x00000000
 		fild dword ptr ds : [0x022032E0]
 		push 0x000000FF
@@ -34,7 +34,7 @@ __declspec(naked) void naked_0x50547F()
 	__asm
 	{
 		push 0x000000FF
-		fstp dword ptr ds : [esp + 0x2C]
+		fstp dword ptr ss : [esp + 0x2C]
 		push 0x00000080
 		fild dword ptr ds : [0x022032E0]
 		push 0x00000080
@@ -48,7 +48,7 @@ __declspec(naked) void naked_0x50580E()
 	__asm
 	{
 		push 0x00000000
-		fstp dword ptr ds : [esp + 0x2C]
+		fstp dword ptr ss : [esp + 0x2C]
 		push 0x000000FF
 		fild dword ptr ds : [0x022032E0]
 		push 0x00000000
@@ -62,7 +62,7 @@ __declspec(naked) void naked_0x505B8F()
 	__asm
 	{
 		push 0x00000000
-		fstp dword ptr ds : [esp + 0x2C]
+		fstp dword ptr ss : [esp + 0x2C]
 		push 0x00000080
 		fild dword ptr ds : [0x022032E0]
 		push 0x000000FF
@@ -76,7 +76,7 @@ __declspec(naked) void naked_0x505F1E()
 	__asm
 	{
 		push 0x000000FF
-		fstp dword ptr ds : [esp + 0x2C]
+		fstp dword ptr ss : [esp + 0x2C]
 		push 0x000000FF
 		fild dword ptr ds : [0x022032E0]
 		push 0x00000000
