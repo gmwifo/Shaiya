@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>920</ID>
+      <Description>"Dungeon maps preview"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+"game.exe"+DAA27:
+nop
+nop
+cmp word ptr [0090E2E0],64
+
+[DISABLE]
+"game.exe"+DAA27:
+jne 004DAA37
+cmp word ptr [0090E2E0],19
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
