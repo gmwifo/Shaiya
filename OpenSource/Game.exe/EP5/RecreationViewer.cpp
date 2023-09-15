@@ -6,9 +6,9 @@ __declspec(naked) void naked_0x4AD66F()
 {
 	_asm 
 	{
-		        add eax,0x45
-				cmp ecx,eax
-				jmp u0x4AD674
+	  add eax,0x45
+	  cmp ecx,eax
+	  jmp u0x4AD674
 	}
 }
 
@@ -17,9 +17,9 @@ __declspec(naked) void naked_0x4AD68F()
 {
 	__asm 
 	{
-		    add eax, 0x92
-			cmp edx, eax
-			jmp u0x4AD694
+	  add eax, 0x92
+	  cmp edx, eax
+	  jmp u0x4AD694
 	}
 }
 
@@ -28,9 +28,9 @@ __declspec(naked) void naked_0x4AD658()
 {
 	__asm 
 	{
-		    mov eax, [esi + 0x000024C0]
-			add eax,-0x10
-			jmp u0x4AD65E
+	  mov eax, [esi + 0x000024C0]
+	  add eax,-0x10
+	  jmp u0x4AD65E
 	}
 }
 
