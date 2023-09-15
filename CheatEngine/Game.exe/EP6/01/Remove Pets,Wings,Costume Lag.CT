@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>920</ID>
+      <Description>"Remove Lag on pets,wings,costume"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+"game.exe"+16F38D:
+jne 0056F3BE
+
+"game.exe"+183DED:
+jne 00583E0D
+
+"game.exe"+1881ED:
+jne 00588277
+
+[DISABLE]
+"game.exe"+16F38D:
+je 0056F3BE
+
+"game.exe"+183DED:
+je 00583E0D
+
+"game.exe"+1881ED:
+je 00588277
+
+
+
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
