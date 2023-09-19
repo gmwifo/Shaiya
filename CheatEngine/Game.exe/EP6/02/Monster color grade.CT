@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"Character Level Check"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>4 Bytes</VariableType>
+      <Address>"game.exe"+50D1E4</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"Monster Level Range Colors"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+sub eax,[0090D1E4]
+
+cmp eax,#10 //if level range above 10+
+jl pink
+mov eax,FF808080
+jmp exit
+
+pink:
+cmp eax,#8 //if level range +8 ~ 9
+jl red
+mov eax,FFFF00FF
+jmp exit
+
+red:
+cmp eax,#6 //if level range +6 ~ 7
+jl orange
+mov eax,FFFF0000
+jmp exit
+
+orange:
+cmp eax,#4 //if level range +4 ~ 5
+jl yellow
+mov eax,FFFF8000
+jmp exit
+
+yellow:
+cmp eax,#2 //if level range +2 ~ 3
+jl green
+mov eax,FFFFFF00
+jmp exit
+
+green:
+cmp eax,#-1 //if level range -1 ~ +1
+jl blue
+mov eax,FF00FF00
+jmp exit
+
+blue: //if level range -2 ~ -3
+cmp eax,#-3
+jl openblue
+mov eax,FF0000FF
+jmp exit
+
+openblue: //if level range -4 ~ -5
+cmp eax,#-5
+jl white
+mov eax,FF00ffff
+jmp exit
+
+white: //if level range is down to -6
+mov eax,FFFFFFFF
+
+exit:
+jmp 004E6631
+
+"game.exe"+E65D5:
+jmp newmem
+nop
+returnhere:
+
+
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"game.exe"+E65D5:
+sub eax,[0090D1E4]
+//Alt: db 2B 05 E4 D1 90 00
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of add ecx,FF575556</Description>
+      <AddressString>game.exe+E5129</AddressString>
+      <Before>
+        <Byte>E1</Byte>
+        <Byte>1D</Byte>
+        <Byte>1E</Byte>
+        <Byte>1C</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>81</Byte>
+        <Byte>C1</Byte>
+        <Byte>56</Byte>
+        <Byte>55</Byte>
+        <Byte>57</Byte>
+        <Byte>FF</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>C1</Byte>
+        <Byte>C2</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov eax,ecx</Description>
+      <AddressString>game.exe+E512F</AddressString>
+      <Before>
+        <Byte>C1</Byte>
+        <Byte>56</Byte>
+        <Byte>55</Byte>
+        <Byte>57</Byte>
+        <Byte>FF</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>C1</Byte>
+      </Actual>
+      <After>
+        <Byte>C2</Byte>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>CC</Byte>
+        <Byte>CC</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of jg game.exe+E5102</Description>
+      <AddressString>game.exe+E50F8</AddressString>
+      <Before>
+        <Byte>04</Byte>
+        <Byte>00</Byte>
+        <Byte>83</Byte>
+        <Byte>F8</Byte>
+        <Byte>02</Byte>
+      </Before>
+      <Actual>
+        <Byte>7F</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>B8</Byte>
+        <Byte>1E</Byte>
+        <Byte>1A</Byte>
+        <Byte>AA</Byte>
+        <Byte>FF</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+</CheatTable>
