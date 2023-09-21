@@ -3,7 +3,7 @@
 Visual Studio
 https://visualstudio.microsoft.com/
 
-Bracket Website Development
+Brackets Website Development
 https://brackets.io/
 
 SQL SERVER
