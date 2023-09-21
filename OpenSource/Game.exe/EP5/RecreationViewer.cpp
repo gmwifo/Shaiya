@@ -6,7 +6,7 @@ __declspec(naked) void naked_0x4AD68F()
 {
 	__asm 
 	{
-		add eax, 0x92
+		add eax, 0x88
 		cmp edx, eax
 		jg viewer
 		jmp u0x4AD694
