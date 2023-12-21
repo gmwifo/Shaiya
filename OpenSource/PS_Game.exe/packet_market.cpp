@@ -14,12 +14,12 @@ void __declspec(naked) naked_0x440EBD()
 		cmp byte ptr[edx+0x24],0x6
 		je _u0x440ED3
 
-		_u0x440ED3 :
-		jmp u0x440ED3
-
 		_u0x440EC3 :
 		cmp[edx+0xA4],al
 		jmp u0x440EC3
+
+		_u0x440ED3 :
+		jmp u0x440ED3
 	}
 }
 
