@@ -1,3 +1,11 @@
+#define WIN32_LEAN_AND_MEAN
+
+#include <windows.h>
+#include <array>
+
+#include <include/main.h>
+#include <include/util.h>
+
 unsigned u0x440EC3 = 0x440EC3;
 unsigned u0x440ED3 = 0x440ED3;
 void __declspec(naked) naked_0x440EBD()
