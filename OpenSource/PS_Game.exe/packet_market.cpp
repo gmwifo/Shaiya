@@ -1,4 +1,4 @@
-unsigned u0x440EC5 = 0x440EC5;
+unsigned u0x440EC3 = 0x440EC3;
 unsigned u0x440ED3 = 0x440ED3;
 void __declspec(naked) naked_0x440EBD()
 {
@@ -6,26 +6,24 @@ void __declspec(naked) naked_0x440EBD()
 	{
 		// fix search for spear in auction house board
 		cmp al,0x4
-		jne decrements
+		jne _u0x440EC3
 		cmp byte ptr[edx+0x24],0x34
-		je originals
+		je _u0x440ED3
 		cmp byte ptr[edx+0x24],0x33
-		je originals
+		je _u0x440ED3
 		cmp byte ptr[edx+0x24],0x6
-		je originals
-		jne decrements
+		je _u0x440ED3
 
-		originals :
+		_u0x440ED3 :
 		jmp u0x440ED3
 
-		decrements :
+		_u0x440EC3 :
 		cmp[edx+0xA4],al
-		je originals
-		jmp u0x440EC5
+		jmp u0x440EC3
 	}
 }
 
 void hook::packet_market()
 {
-    util::detour((void*)0x440EBD, naked_0x440EBD, 8);
+    util::detour((void*)0x440EBD, naked_0x440EBD, 6);
 }
