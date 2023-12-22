@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>930</ID>
+      <Description>"Jav in monster"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+cmp byte ptr[esi+191],0D
+je javmonster
+cmp byte ptr[esi+191],0E
+je javmonster
+cmp byte ptr[esi+191],0B
+je javmonster
+
+originalcode:
+mov byte ptr [esi+1C1],01
+
+javmonster:
+mov byte ptr [esi+1C1],00
+jmp returnhere
+
+"game.exe"+163BDE:
+jmp newmem
+nop
+nop
+returnhere:
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"game.exe"+163BDE:
+mov byte ptr [esi+1C1],01
+//Alt: db C6 86 C1 01 00 00 01
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>931</ID>
+      <Description>"Jav in player"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+cmp byte ptr[esi+191],0D
+je javplayer
+cmp byte ptr[esi+191],0E
+je javplayer
+cmp byte ptr[esi+191],0B
+je javplayer
+
+originalcode:
+mov byte ptr [esi+1C1],01
+
+javplayer:
+mov byte ptr [esi+1C1],00
+jmp returnhere
+
+"game.exe"+160A3D:
+jmp newmem
+nop
+nop
+returnhere:
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"game.exe"+160A3D:
+mov byte ptr [esi+1C1],01
+//Alt: db C6 86 C1 01 00 00 01
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
