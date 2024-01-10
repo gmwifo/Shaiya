@@ -52,7 +52,7 @@ __declspec(naked) void naked_0x542ABD()
 		mov eax, [Points+edi*4]
 		pop edi
 		mov dword ptr ds : [0x7C1930], eax
-        jmp u0x542AC2
+               jmp u0x542AC2
 	}
 }
 
