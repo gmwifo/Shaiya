@@ -14,9 +14,9 @@ __declspec(naked) void naked_0x4AD68F()
 	{
 		add eax, 0x88
 		cmp edx, eax
-		jg _u0x4AD694
+		jg _u0x4AD709
 		jmp u0x4AD694
-		_u0x4AD694 :
+		_u0x4AD709 :
 		jmp u0x4AD709
 	}
 }
