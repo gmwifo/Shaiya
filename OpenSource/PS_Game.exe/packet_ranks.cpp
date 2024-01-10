@@ -91,8 +91,7 @@ void __declspec(naked) naked_0x49D013()
 		ranks:
 		mov ax, [points_table]
 		mov[esp + 0x10],ax
-
-        jmp u0x49D018
+                jmp u0x49D018
 	}
 }
 
