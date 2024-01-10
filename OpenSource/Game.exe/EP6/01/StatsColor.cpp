@@ -1,15 +1,20 @@
-#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
 
+#include <windows.h>
+#include <array>
+
+#include <include/main.h>
+#include <include/util.h>
 
 unsigned u0x52A1AA = 0x52A1AA;
 __declspec(naked) void naked_0x52A195()
 {
     __asm
     {
-        push 0x00000000
+        push 0x00
         fild dword ptr ds : [0x22B1954]
-        push 0x00000000
-        push 0x000000FF
+        push 0x00
+        push 0xFF
         jmp u0x52A1AA
     }
 }
@@ -19,10 +24,10 @@ __declspec(naked) void naked_0x52A555()
 {
     __asm
     {
-        push 0x000000CE
+        push 0xCE
         fild dword ptr ds : [0x22B1954]
-        push 0x00000000
-        push 0x000000FF
+        push 0x00
+        push 0xFF
         jmp u0x52A56A
     }
 }
@@ -32,10 +37,10 @@ __declspec(naked) void naked_0x52A915()
 {
     __asm
     {
-        push 0x000000FF
+        push 0xFF
         fild dword ptr ds : [0x22B1954]
-        push 0x00000080
-        push 0x00000080
+        push 0x80
+        push 0x80
         jmp u0x52A92A
     }
 }
@@ -45,10 +50,10 @@ __declspec(naked) void naked_0x52ACD5()
 {
     __asm
     {
-        push 0x00000000
+        push 0x00
         fild dword ptr ds : [0x22B1954]
-        push 0x000000FF
-        push 0x00000000
+        push 0xFF
+        push 0x00
         jmp u0x52ACEA
     }
 }
@@ -58,10 +63,10 @@ __declspec(naked) void naked_0x52B095()
 {
     __asm
     {
-        push 0x00000000
+        push 0x00
         fild dword ptr ds : [0x22B1954]
-        push 0x00000080
-        push 0x000000FF
+        push 0x80
+        push 0xFF
         jmp u0x52B0AA
     }
 }
@@ -71,10 +76,10 @@ __declspec(naked) void naked_0x52B455()
 {
     __asm
     {
-        push 0x000000FF
+        push 0xFF
         fild dword ptr ds : [0x22B1954]
-        push 0x000000FF
-        push 0x00000000
+        push 0xFF
+        push 0x00
         jmp u0x52B46A
     }
 }
