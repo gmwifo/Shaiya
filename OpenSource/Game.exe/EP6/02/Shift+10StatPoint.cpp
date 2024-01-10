@@ -1,4 +1,10 @@
-#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+
+#include <windows.h>
+#include <array>
+
+#include <include/main.h>
+#include <include/util.h>
 
 unsigned u0x529886 = 0x529886;
 __declspec(naked) void naked_0x52987D()
