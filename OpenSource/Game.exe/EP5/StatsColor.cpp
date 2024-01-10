@@ -1,15 +1,21 @@
-#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+
+#include <windows.h>
+#include <array>
+
+#include <include/main.h>
+#include <include/util.h>
 
 unsigned u0x504D7E = 0x504D7E;
 __declspec(naked) void naked_0x504D65()
 {
 	__asm
 	{
-		push 0x00000000
+		push 0x00
 		fstp dword ptr ss : [esp + 0x2C]
-		push 0x00000000
+		push 0x00
 		fild dword ptr ds :[0x022032E0]
-		push 0x000000FF
+		push 0xFF
 		jmp u0x504D7E
 	}
 }
@@ -19,11 +25,11 @@ __declspec(naked) void naked_0x5050FF()
 {
 	__asm
 	{
-		push 0x000000CE
+		push 0xCE
 		fstp dword ptr ss : [esp + 0x2C]
-		push 0x00000000
+		push 0x00
 		fild dword ptr ds : [0x022032E0]
-		push 0x000000FF
+		push 0xFF
 		jmp u0x505118
 	}
 }
@@ -33,11 +39,11 @@ __declspec(naked) void naked_0x50547F()
 {
 	__asm
 	{
-		push 0x000000FF
+		push 0xFF
 		fstp dword ptr ss : [esp + 0x2C]
-		push 0x00000080
+		push 0x80
 		fild dword ptr ds : [0x022032E0]
-		push 0x00000080
+		push 0x80
 		jmp u0x505498
 	}
 }
@@ -47,11 +53,11 @@ __declspec(naked) void naked_0x50580E()
 {
 	__asm
 	{
-		push 0x00000000
+		push 0x00
 		fstp dword ptr ss : [esp + 0x2C]
-		push 0x000000FF
+		push 0xFF
 		fild dword ptr ds : [0x022032E0]
-		push 0x00000000
+		push 0x00
 		jmp u0x505827
 	}
 }
@@ -61,11 +67,11 @@ __declspec(naked) void naked_0x505B8F()
 {
 	__asm
 	{
-		push 0x00000000
+		push 0x00
 		fstp dword ptr ss : [esp + 0x2C]
-		push 0x00000080
+		push 0x80
 		fild dword ptr ds : [0x022032E0]
-		push 0x000000FF
+		push 0xFF
 		jmp u0x505BA8
 	}
 }
@@ -75,11 +81,11 @@ __declspec(naked) void naked_0x505F1E()
 {
 	__asm
 	{
-		push 0x000000FF
+		push 0xFF
 		fstp dword ptr ss : [esp + 0x2C]
-		push 0x000000FF
+		push 0xFF
 		fild dword ptr ds : [0x022032E0]
-		push 0x00000000
+		push 0x00
 		jmp u0x505F37
 	}
 }
