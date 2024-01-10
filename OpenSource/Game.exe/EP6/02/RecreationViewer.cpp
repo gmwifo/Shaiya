@@ -1,4 +1,10 @@
-#include "pch.h"
+#define WIN32_LEAN_AND_MEAN
+
+#include <windows.h>
+#include <array>
+
+#include <include/main.h>
+#include <include/util.h>
 
 unsigned u0x4C5926 = 0x4C5926;
 unsigned u0x4C5996 = 0x4C5996;
@@ -8,9 +14,9 @@ __declspec(naked) void naked_0x4C591F()
 	{
 		add eax, 0x88
 		cmp edx, eax
-		jg viewer
+		jg _u0x4C5996
 		jmp u0x4C5926
-		viewer :
+		_u0x4C5996 :
 		jmp u0x4C5996
 	}
 }
