@@ -7,7 +7,6 @@
 #include <include/util.h>
 
 std::array<int, 32> points =
-
 {
   1,
   3,
