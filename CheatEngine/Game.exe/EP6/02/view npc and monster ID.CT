@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>51</ID>
+      <Description>"Monster NPC ID"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+
+newmem:
+mov al, [0090D1D4]
+cmp al, 01
+je originalcode
+cmp al, 02
+je originalcode
+cmp al ,03
+sete al
+ret
+
+originalcode:
+mov al , 01
+ret
+jmp returnhere
+
+004E6D76:
+jmp newmem
+
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+004E6D76:
+sete al
+ret
+
+
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
