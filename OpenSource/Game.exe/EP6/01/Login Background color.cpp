@@ -70,7 +70,7 @@ void __declspec(naked) naked_0x434C2B()
     }
 }
 
-void hook::background_color()
+void hook::login_background_color()
 {
     util::detour((void*)0x43473C, naked_0x43473C, 6);
     util::detour((void*)0x43487A, naked_0x43487A, 6);
