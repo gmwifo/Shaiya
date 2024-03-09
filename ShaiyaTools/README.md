@@ -1,3 +1,4 @@
-# Shaiya Tools
+# SHAIYA DEVELOPMENT TOOLS
 
-Collection
+This is for collection only
+# CREDITS TO THE OWNER
