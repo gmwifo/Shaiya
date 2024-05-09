@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>986</ID>
+      <Description>"Enable Script"</Description>
+      <Options moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>28</ID>
+          <Description>"Packet Market 1C01"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+
+newmem://this is allocated memory, you have read,write,execute access
+//place your code here
+movzx eax,byte ptr[ebp+5]
+cmp eax,13
+jnl u734810A2
+
+u73481099:
+lea ecx,[ebp+7]
+jmp 00486320
+
+u734810A2:
+dec eax
+jmp u73481099
+
+"ps_game.exe"+86319:
+jmp newmem
+nop
+nop
+returnhere:
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"ps_game.exe"+86319:
+movzx eax,byte ptr[ebp+5]
+lea ecx,[ebp+7]
+//Alt: db 0F B6 45 05 8D 4D 07
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>856</ID>
+          <Description>"Packet Market Spear"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,1024)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem:
+ //this is allocated memory, you have read,write,execute access
+//place your code here
+cmp al,#4
+jne originalcode
+cmp byte ptr[edx+24],#52
+je ps_game.exe+40ED3
+cmp byte ptr[edx+24],#51
+je ps_game.exe+40ED3
+cmp byte ptr[edx+24],#06
+je ps_game.exe+40ED3
+jmp exit
+
+originalcode:
+cmp [edx+000000A4],al
+je ps_game.exe+40ED3
+
+exit:
+jmp returnhere
+
+"ps_game.exe"+40EBD:
+jmp newmem
+nop
+nop
+nop
+returnhere:
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"ps_game.exe"+40EBD:
+cmp [edx+000000A4],al
+je ps_game.exe+40ED3
+//Alt: db 38 82 A4 00 00 00 74 0E
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>987</ID>
+          <Description>"Packet Batlle Trade Visual Slot"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+alloc(PacketBattle,512)
+registersymbol(PacketBattle)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+push 2B
+lea ecx,[esp+48]
+pushfd
+mov ebx,[ecx]
+mov [PacketBattle],ebx
+mov ebx,[ecx+4]
+mov [PacketBattle+4],ebx
+mov ebx,[ecx+8]
+mov [PacketBattle+10],ebx
+mov ebx,[ecx+0C]
+mov [PacketBattle+14],ebx
+mov ebx,[ecx+10]
+mov [PacketBattle+18],ebx
+mov ebx,[ecx+14]
+mov [PacketBattle+1C],ebx
+mov ebx,[ecx+18]
+mov [PacketBattle+20],ebx
+mov ebx,[ecx+1C]
+mov [PacketBattle+24],ebx
+mov ebx,[ecx+20]
+mov [PacketBattle+28],ebx
+popfd
+push PacketBattle
+mov ecx,esi
+mov [PacketBattle+2A],eax
+call 004ED0E0
+jmp 0048C753
+
+"ps_game.exe"+8C741:
+jmp newmem
+nop
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"ps_game.exe"+8C741:
+push 23
+lea ecx,[esp+48]
+//Alt: db 6A 23 8D 4C 24 48
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>985</ID>
+          <Description>"Archer/Hunter LUC ATK Increase"</Description>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+cmp byte ptr [edi+134],3
+jne originalcode
+mov eax,[edi+13F8]
+jmp exit
+
+originalcode:
+mov eax,[edi+000013CC]
+
+exit:
+jmp returnhere
+
+"pet.dll"+7624:
+jmp newmem
+nop
+returnhere:
+
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"pet.dll"+7624:
+mov eax,[edi+000013CC]
+//Alt: db 8B 87 CC 13 00 00
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
