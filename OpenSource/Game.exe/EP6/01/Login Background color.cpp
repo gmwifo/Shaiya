@@ -6,74 +6,25 @@
 #include <include/main.h>
 #include <include/util.h>
 
-unsigned u0x43474A = 0x43474A;
-void __declspec(naked) naked_0x43473C()
+auto choirock = "choirock.bmp";
+unsigned u0x4345C1 = 0x4345C1;
+void __declspec(naked) naked_0x4345BC()
 {
-    __asm
-    {
-        push 0x00
-        push ecx
-        fstp dword ptr[esp]
-        push 0x00
-        push 0x03
-        push 0x00
-        push 0x00
-        jmp u0x43474A
-    }
+	__asm
+	{
+		push choirock
+		jmp u0x4345C1
+	}
 }
 
-unsigned u0x434888 = 0x434888;
-void __declspec(naked) naked_0x43487A()
+void hookInterface()
 {
-    __asm 
-    {
-        push 0x00
-        push ecx
-        fstp dword ptr[esp]
-        push 0x00
-        push 0x03
-        push 0x00
-        push 0x00
-        jmp u0x434888
-    }
-}
-
-unsigned u0x434B4A = 0x434B4A;
-void __declspec(naked) naked_0x434B3C()
-{
-    __asm
-    {
-        push 0x00
-        push ecx
-        fstp dword ptr[esp]
-        push 0x00
-        push 0x03
-        push 0x00
-        push 0x00
-        jmp u0x434B4A
-    }
-}
-
-unsigned u0x434C39 = 0x434C39;
-void __declspec(naked) naked_0x434C2B()
-{
-    __asm
-    {
-        push 0x00
-        push ecx
-        fstp dword ptr[esp]
-        push 0x00
-        push 0x03
-        push 0x00
-        push 0x00
-        jmp u0x434C39
-    }
-}
-
-void hook::login_background_color()
-{
-    util::detour((void*)0x43473C, naked_0x43473C, 6);
-    util::detour((void*)0x43487A, naked_0x43487A, 6);
-    util::detour((void*)0x434B3C, naked_0x434B3C, 6);
-    util::detour((void*)0x434C2B, naked_0x434C2B, 6);
+	//blackscreen
+	std::array<std::uint8_t, 2> blackscreen{ 0x6A, 0x00 };
+	std::memcpy((void*)0x434742, &blackscreen, 2);
+	std::memcpy((void*)0x434880, &blackscreen, 2);
+	std::memcpy((void*)0x434B42, &blackscreen, 2);
+	std::memcpy((void*)0x434C31, &blackscreen, 2);
+	//Choirock
+	hook((void*)0x4345BC, naked_0x4345BC, 5);
 }
