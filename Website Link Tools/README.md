@@ -7,7 +7,7 @@ Brackets Website Development
 https://brackets.io/
 
 SQL SERVER
-https://www.microsoft.com/en-US/download/details.aspx?id=43340
+https://sqlserverbuilds.blogspot.com/2018/01/sql-server-management-studio-ssms.html
 
 Forum Shaiya
 https://www.elitepvpers.com/forum/shaiya
