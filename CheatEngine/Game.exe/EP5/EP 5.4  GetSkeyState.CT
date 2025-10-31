@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="46">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>3</ID>
+      <Description>"EP 5.4  GetSkeyState"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+alloc(newmem,2048)
+alloc(CapsLock,4)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem:
+cmp byte ptr [esi+10C],00
+je originalcode
+
+pushad
+push 14
+call GetKeyState
+test al,01
+je jmpCapsLock
+
+mov byte ptr [CapsLock],01
+popad
+
+cmp byte ptr [CapsLock],01
+je CapsLock_pointer
+
+originalcode:
+mov al,[esi+10C]
+
+exit:
+jmp returnhere
+
+CapsLock_pointer:
+cmp byte ptr [esi+10C],02
+je originalcode
+jmp game.exe+DFA22
+
+jmpCapsLock:
+popad
+mov byte ptr [CapsLock],00
+cmp byte ptr [esi+10C],02
+je game.exe+DFA22
+jmp originalcode
+
+game.exe+DF860:
+jmp newmem
+nop
+returnhere:
+
+[DISABLE]
+dealloc(newmem)
+dealloc(CapsLock)
+game.exe+DF860:
+mov al,[esi+10C]
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of je ijl16.dll+8477</Description>
+      <AddressString>ijl16.dll+8468</AddressString>
+      <Before>
+        <Byte>1C</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>02</Byte>
+      </Before>
+      <Actual>
+        <Byte>74</Byte>
+        <Byte>0D</Byte>
+      </Actual>
+      <After>
+        <Byte>B8</Byte>
+        <Byte>8C</Byte>
+        <Byte>0E</Byte>
+        <Byte>7C</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of je ijl16.dll+8508</Description>
+      <AddressString>ijl16.dll+84F8</AddressString>
+      <Before>
+        <Byte>1C</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>02</Byte>
+      </Before>
+      <Actual>
+        <Byte>74</Byte>
+        <Byte>0E</Byte>
+      </Actual>
+      <After>
+        <Byte>3E</Byte>
+        <Byte>80</Byte>
+        <Byte>BF</Byte>
+        <Byte>1C</Byte>
+        <Byte>01</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+</CheatTable>
